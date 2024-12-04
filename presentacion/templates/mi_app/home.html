@@ -9,62 +9,59 @@
     <link rel="stylesheet" href="{% static 'mi_app/styles.css' %}">
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="{% static 'mi_app/logo.png' %}" alt="Logo de la App" class="app-logo">
-        </div>
-        <h1>¡Bienvenido a Nuestra App!</h1>
-    </header>
+    <div class="card-container">
+        <header>
+            <div class="logo-container">
+                <img src="{% static 'mi_app/logo.png' %}" alt="Logo de la App" class="app-logo">
+            </div>
+            <h1>¡Bienvenido a Nuestra App!</h1>
+        </header>
 
-    <main>
-        <div class="description">
-            <p>
-                Nuestra aplicación te permite gestionar tareas, recibir notificaciones importantes y disfrutar de funcionalidades exclusivas. ¡Descubre cómo puede facilitar tu vida!
-            </p>
-        </div>
+        <main>
+            <!-- Descripción de la app -->
+            <div class="description">
+                <p>
+                    Nuestra aplicación te permite gestionar tareas, recibir notificaciones importantes y disfrutar de funcionalidades exclusivas. ¡Descubre cómo puede facilitar tu vida!
+                </p>
+            </div>
 
-        <div class="media-container">
-            <video controls class="app-video">
-                <source src="{% static 'mi_app/video.mp4' %}" type="video/mp4">
-                Tu navegador no soporta el video.
-            </video>
-            <img src="{% static 'mi_app/imagen.png' %}" alt="Imagen de la app" class="app-image">
-        </div>
-
-        {% if is_pc %}
-        <div class="qr-section">
-            <p>Escanea este código QR para descargar la app:</p>
-            <img src="{% url 'qr_code' %}" alt="Código QR" class="qr-image">
-        </div>
-        {% else %}
-        <div class="download-section">
-            <p>Descarga la app aquí:</p>
-            <a href="https://github.com/AutumnZbx/OverlordChroniclesApk/raw/refs/heads/main/OverlordChronicles.apk" download class="download-button">
-                Descargar App
-            </a>
-        </div>
-        {% endif %}
-
-        <div class="cards-section">
-            <div class="card">
-                <img src="{% static 'mi_app/captura1.png' %}" alt="Captura 1">
-                <div class="card-content">
-                    <h3>Funcionalidad 1</h3>
-                    <p>Descripción breve de la funcionalidad que incluye esta captura.</p>
+            <!-- Sección de capturas -->
+            <div class="cards-section">
+                <div class="card">
+                    <img src="{% static 'mi_app/captura1.png' %}" alt="Captura 1">
+                    <div class="card-content">
+                        <h3>Funcionalidad 1</h3>
+                        <p>Descripción breve de la funcionalidad que incluye esta captura.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="{% static 'mi_app/captura2.png' %}" alt="Captura 2">
+                    <div class="card-content">
+                        <h3>Funcionalidad 2</h3>
+                        <p>Explicación de cómo esta funcionalidad beneficia al usuario.</p>
+                    </div>
                 </div>
             </div>
-            <div class="card">
-                <img src="{% static 'mi_app/captura2.png' %}" alt="Captura 2">
-                <div class="card-content">
-                    <h3>Funcionalidad 2</h3>
-                    <p>Explicación de cómo esta funcionalidad beneficia al usuario.</p>
-                </div>
-            </div>
-        </div>
-    </main>
 
-    <footer>
-        <p>© 2024 Nuestra App. Todos los derechos reservados.</p>
-    </footer>
+            <!-- Sección QR o descarga -->
+            {% if is_pc %}
+                <div class="qr-section">
+                    <p>Escanea este código QR para descargar la app:</p>
+                    <img src="{% url 'qr_code' %}" alt="Código QR" class="qr-image">
+                </div>
+            {% else %}
+                <div class="download-section">
+                    <p>Descarga la app aquí:</p>
+                    <a href="https://github.com/AutumnZbx/OverlordChroniclesApk/raw/refs/heads/main/OverlordChronicles.apk" download class="download-button">
+                        Descargar App
+                    </a>
+                </div>
+            {% endif %}
+        </main>
+
+        <footer>
+            <p>© 2024 OverlordChronicles. Todos los derechos reservados.</p>
+        </footer>
+    </div>
 </body>
 </html>
