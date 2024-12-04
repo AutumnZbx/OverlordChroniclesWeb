@@ -1,41 +1,70 @@
-<!-- mi_app/templates/mi_app/home.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Descarga Nuestra App</title>
-    {% load static %}  <!-- Cargar las etiquetas estáticas aquí -->
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
-        img, video { max-width: 100%; margin: 20px 0; }
-        .qr, .descarga { display: none; }
-        .visible { display: block; }
-    </style>
+    {% load static %}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'mi_app/styles.css' %}">
 </head>
 <body>
-    <h1>¡Bienvenido a Nuestra App!</h1>
-    
-    <div class="contenido">
-        <video controls>
-            <source src="{% static 'mi_app/video.mp4' %}" type="video/mp4">
-            Tu navegador no soporta el video.
-        </video>
-        <img src="{% static 'mi_app/imagen.png' %}" alt="Imagen de la app">
-    </div>
-
-    {% if is_pc %}
-        <div class="qr visible">
-            <p>Escanea este código QR para descargar la app:</p>
-            <img src="{% url 'qr_code' %}" alt="Código QR">
+    <header>
+        <div class="logo-container">
+            <img src="{% static 'mi_app/logo.png' %}" alt="Logo de la App" class="app-logo">
         </div>
-    {% else %}
-        <div class="descarga visible">
+        <h1>¡Bienvenido a Nuestra App!</h1>
+    </header>
+
+    <main>
+        <div class="description">
+            <p>
+                Nuestra aplicación te permite gestionar tareas, recibir notificaciones importantes y disfrutar de funcionalidades exclusivas. ¡Descubre cómo puede facilitar tu vida!
+            </p>
+        </div>
+
+        <div class="media-container">
+            <video controls class="app-video">
+                <source src="{% static 'mi_app/video.mp4' %}" type="video/mp4">
+                Tu navegador no soporta el video.
+            </video>
+            <img src="{% static 'mi_app/imagen.png' %}" alt="Imagen de la app" class="app-image">
+        </div>
+
+        {% if is_pc %}
+        <div class="qr-section">
+            <p>Escanea este código QR para descargar la app:</p>
+            <img src="{% url 'qr_code' %}" alt="Código QR" class="qr-image">
+        </div>
+        {% else %}
+        <div class="download-section">
             <p>Descarga la app aquí:</p>
-            <a href="https://github.com/AutumnZbx/OverlordChroniclesApk/raw/refs/heads/main/OverlordChronicles.apk" download class="btn btn-primary">
+            <a href="https://github.com/AutumnZbx/OverlordChroniclesApk/raw/refs/heads/main/OverlordChronicles.apk" download class="download-button">
                 Descargar App
             </a>
         </div>
-    {% endif %}
+        {% endif %}
+
+        <div class="cards-section">
+            <div class="card">
+                <img src="{% static 'mi_app/captura1.png' %}" alt="Captura 1">
+                <div class="card-content">
+                    <h3>Funcionalidad 1</h3>
+                    <p>Descripción breve de la funcionalidad que incluye esta captura.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'mi_app/captura2.png' %}" alt="Captura 2">
+                <div class="card-content">
+                    <h3>Funcionalidad 2</h3>
+                    <p>Explicación de cómo esta funcionalidad beneficia al usuario.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Nuestra App. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
-

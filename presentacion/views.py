@@ -15,7 +15,6 @@ def home(request):
 
 
 def qr_code(request):
-    # URL directa del APK en GitHub
     apk_url = "https://github.com/AutumnZbx/OverlordChroniclesApk/raw/refs/heads/main/OverlordChronicles.apk"
     qr = qrcode.make(apk_url)
     buffer = BytesIO()
