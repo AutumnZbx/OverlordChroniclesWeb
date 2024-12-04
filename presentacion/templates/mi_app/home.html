@@ -1,0 +1,41 @@
+<!-- mi_app/templates/mi_app/home.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Descarga Nuestra App</title>
+    {% load static %}  <!-- Cargar las etiquetas estáticas aquí -->
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        img, video { max-width: 100%; margin: 20px 0; }
+        .qr, .descarga { display: none; }
+        .visible { display: block; }
+    </style>
+</head>
+<body>
+    <h1>¡Bienvenido a Nuestra App!</h1>
+    
+    <div class="contenido">
+        <video controls>
+            <source src="{% static 'mi_app/video.mp4' %}" type="video/mp4">
+            Tu navegador no soporta el video.
+        </video>
+        <img src="{% static 'mi_app/imagen.png' %}" alt="Imagen de la app">
+    </div>
+
+    {% if is_pc %}
+        <div class="qr visible">
+            <p>Escanea este código QR para descargar la app:</p>
+            <img src="{% url 'qr_code' %}" alt="Código QR">
+        </div>
+    {% else %}
+        <div class="descarga visible">
+            <p>Descarga la app aquí:</p>
+            <a href="https://github.com/AutumnZbx/OverlordChroniclesApk/raw/refs/heads/main/OverlordChronicles.apk" download class="btn btn-primary">
+                Descargar App
+            </a>
+        </div>
+    {% endif %}
+</body>
+</html>
+
