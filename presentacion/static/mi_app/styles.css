@@ -1,53 +1,38 @@
-/* Fondo general */
+
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif; 
-    background: url("{% static 'mi_app/img/fondo.jpg' %}") no-repeat center center fixed; 
+    background: url("{% static 'mi_app/img/login.jpg' %}") no-repeat center center fixed; 
     background-size: cover; 
     color: #bd955b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-/* Card central */
 .card-container {
-    max-width: 900px;      
-    margin: 20px q;   
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
     background: rgba(29, 34, 53, 0.95); 
     border-radius: 15px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    background-color: #141826;
     color: #bd955b;
     text-align: center;
+    position: relative;
 }
 
-/* Márgenes laterales */
-@media (min-width: 1024px) {
-    .card-container {
-        margin-left: 5%;  
-        margin-right: 5%; 
-    }
-}
-
-@media (max-width: 1023px) {
-    .card-container {
-        margin-left: 3%;   
-        margin-right: 3%;  
-    }
-}
-
-
-/* Logo */
-.logo-container {
+.logo-container img {
+    max-width: 300px;
+    height: auto;
     margin-bottom: 20px;
 }
 
-.app-logo {
-    width: auto;
-    height: auto;
-}
-
-/* Header */
 header h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: bold;
     text-transform: uppercase;
     color: #bd955b;
@@ -56,54 +41,85 @@ header h1 {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Descripción */
-.description {
-    margin: 30px auto;
-    padding: 20px;
-    background-color: rgba(45, 49, 73, 0.9);
-    color: #bd955b;
-    border-radius: 12px;
-    font-size: 1.2rem;
-    line-height: 1.6;
-    text-align: justify;
-}
-
 /* Cards */
 .cards-section {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
     gap: 20px;
     margin-top: 40px;
 }
 
 .card {
-    background-color: rgba(45, 49, 73, 0.9);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    width: 300px;
+    width: 100%; 
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    animation: fade-in 1.2s ease-out;
+}
+
+.card:nth-child(odd) {
+    flex-direction: row; 
+}
+
+.card:nth-child(even) {
+    flex-direction: row-reverse; 
 }
 
 .card img {
-    width: 100%;
+    width: 40%; 
+    height: auto;
     display: block;
 }
 
 .card-content {
+    width: 60%; 
     padding: 15px;
     text-align: left;
 }
 
 .card-content h3 {
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-bottom: 10px;
 }
 
 .card-content p {
     color: #bd955b;
     font-size: 1rem;
+}
+
+/* Animación */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fade-in 0.8s ease-out forwards;
+}
+
+/* Ajustes pantallas pequeñas */
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column; 
+    }
+
+    .card img,
+    .card-content {
+        width: 100%;
+    }
+
+    .card-content {
+        text-align: center; 
+    }
 }
 
 /* QR y descarga */
@@ -138,7 +154,6 @@ header h1 {
     transform: scale(1.05);
 }
 
-/* Footer */
 footer {
     margin-top: 20px;
     padding: 10px 0;
