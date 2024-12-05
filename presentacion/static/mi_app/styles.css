@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif; 
-    background: url("{% static 'mi_app/fondo.jpg' %}") no-repeat center center fixed; 
+    background: url("{% static 'mi_app/img/fondo.jpg' %}") no-repeat center center fixed; 
     background-size: cover; 
     color: #bd955b;
 }
@@ -10,7 +10,7 @@ body {
 /* Card central */
 .card-container {
     max-width: 900px;      
-    margin: 20px auto;   
+    margin: 20px q;   
     padding: 20px;
     background: rgba(29, 34, 53, 0.95); 
     border-radius: 15px;
@@ -41,7 +41,7 @@ body {
 }
 
 .app-logo {
-    width: 120px;
+    width: auto;
     height: auto;
 }
 
