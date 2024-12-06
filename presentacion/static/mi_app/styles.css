@@ -3,6 +3,7 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif; 
     background-image: url('/static/img/fondo.jpg') no-repeat center center fixed; 
+    background-color: #bda787;
     background-size: cover; 
     color: #bd955b;
     display: flex;
@@ -23,6 +24,8 @@ body {
     color: #bd955b;
     text-align: center;
     position: relative;
+    border: 5px solid #bd955b;
+    border-radius: 10px;
 }
 
 .logo-container img {
@@ -47,6 +50,8 @@ header h1 {
     flex-direction: column;
     gap: 20px;
     margin-top: 40px;
+    border: 5px solid #bd955b;
+    border-radius: 10px;
 }
 
 .card {
@@ -55,16 +60,10 @@ header h1 {
     flex-direction: row; 
     align-items: center;
     animation: fade-in 1.2s ease-out;
+    border: 5px solid #bd955b;
+    border-radius: 10px;
 }
 
-.card img {
-    width: 100%; 
-    max-width: 150px; 
-    height: auto; 
-    display: block;
-    border-radius: 10px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
-}
 
 .card:nth-child(odd) {
     flex-direction: row; 
@@ -122,10 +121,6 @@ header h1 {
         flex-direction: column; 
     }
 
-    .card img {
-        width: 50%; 
-        max-width: 100px; 
-    }
 
     .card-content {
         width: 100%;
